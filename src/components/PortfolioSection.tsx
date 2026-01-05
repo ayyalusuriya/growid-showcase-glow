@@ -1,3 +1,4 @@
+import { useState } from "react";
 import PortfolioCard from "./PortfolioCard";
 
 // Import all portfolio images
@@ -32,60 +33,100 @@ import image28 from "@/assets/portfolio/image-28.jpg";
 import image29 from "@/assets/portfolio/image-29.jpg";
 import image30 from "@/assets/portfolio/image-30.jpg";
 
+type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Products" | "Fashion" | "Food & Beverage" | "Lifestyle";
+
+const categories: CategoryFilter[] = [
+  "All",
+  "Photography", 
+  "Video",
+  "Events",
+  "Products",
+  "Fashion",
+  "Food & Beverage",
+  "Lifestyle"
+];
+
 const portfolioItems = [
-  { image: image1, title: "Product Collection", category: "Product Photography" },
-  { image: image2, title: "Behind The Scenes", category: "Video Production" },
-  { image: image3, title: "Editorial Shoot", category: "Fashion" },
-  { image: image4, title: "Gourmet Experience", category: "Food Photography" },
-  { image: image5, title: "Luxury Timepiece", category: "Product" },
-  { image: image6, title: "Corporate Event", category: "Event Coverage" },
-  { image: image7, title: "Modern Living", category: "Real Estate" },
-  { image: image8, title: "Fitness Campaign", category: "Lifestyle" },
-  { image: image9, title: "Beauty Products", category: "Cosmetics" },
-  { image: image10, title: "Wedding Story", category: "Wedding" },
-  { image: image11, title: "Street Style", category: "Fashion" },
-  { image: image12, title: "Automotive Elite", category: "Automotive" },
-  { image: image13, title: "Tech Showcase", category: "Technology" },
-  { image: image14, title: "Paradise Found", category: "Travel" },
-  { image: image15, title: "Artist Portrait", category: "Music" },
-  { image: image16, title: "Café Culture", category: "Beverage" },
-  { image: image17, title: "Diamond Dreams", category: "Jewelry" },
-  { image: image18, title: "Game Day", category: "Sports" },
-  { image: image19, title: "Best Friend", category: "Pet Photography" },
-  { image: image20, title: "Fine Dining", category: "Restaurant" },
-  { image: image21, title: "Executive Portrait", category: "Corporate" },
-  { image: image22, title: "Style Guide", category: "E-Commerce" },
-  { image: image23, title: "New Beginnings", category: "Family" },
-  { image: image24, title: "Live Concert", category: "Event" },
-  { image: image25, title: "Summit Views", category: "Adventure" },
-  { image: image26, title: "Sneaker Culture", category: "Product" },
-  { image: image27, title: "Sweet Indulgence", category: "Food" },
-  { image: image28, title: "City Lights", category: "Aerial" },
-  { image: image29, title: "Mindful Moments", category: "Wellness" },
-  { image: image30, title: "Signature Scent", category: "Luxury" },
+  { image: image1, title: "Product Collection", category: "Product Photography", filter: "Products" as CategoryFilter },
+  { image: image2, title: "Behind The Scenes", category: "Video Production", filter: "Video" as CategoryFilter },
+  { image: image3, title: "Editorial Shoot", category: "Fashion", filter: "Fashion" as CategoryFilter },
+  { image: image4, title: "Gourmet Experience", category: "Food Photography", filter: "Food & Beverage" as CategoryFilter },
+  { image: image5, title: "Luxury Timepiece", category: "Product", filter: "Products" as CategoryFilter },
+  { image: image6, title: "Corporate Event", category: "Event Coverage", filter: "Events" as CategoryFilter },
+  { image: image7, title: "Modern Living", category: "Real Estate", filter: "Photography" as CategoryFilter },
+  { image: image8, title: "Fitness Campaign", category: "Lifestyle", filter: "Lifestyle" as CategoryFilter },
+  { image: image9, title: "Beauty Products", category: "Cosmetics", filter: "Products" as CategoryFilter },
+  { image: image10, title: "Wedding Story", category: "Wedding", filter: "Events" as CategoryFilter },
+  { image: image11, title: "Street Style", category: "Fashion", filter: "Fashion" as CategoryFilter },
+  { image: image12, title: "Automotive Elite", category: "Automotive", filter: "Products" as CategoryFilter },
+  { image: image13, title: "Tech Showcase", category: "Technology", filter: "Products" as CategoryFilter },
+  { image: image14, title: "Paradise Found", category: "Travel", filter: "Lifestyle" as CategoryFilter },
+  { image: image15, title: "Artist Portrait", category: "Music", filter: "Photography" as CategoryFilter },
+  { image: image16, title: "Café Culture", category: "Beverage", filter: "Food & Beverage" as CategoryFilter },
+  { image: image17, title: "Diamond Dreams", category: "Jewelry", filter: "Products" as CategoryFilter },
+  { image: image18, title: "Game Day", category: "Sports", filter: "Lifestyle" as CategoryFilter },
+  { image: image19, title: "Best Friend", category: "Pet Photography", filter: "Photography" as CategoryFilter },
+  { image: image20, title: "Fine Dining", category: "Restaurant", filter: "Food & Beverage" as CategoryFilter },
+  { image: image21, title: "Executive Portrait", category: "Corporate", filter: "Photography" as CategoryFilter },
+  { image: image22, title: "Style Guide", category: "E-Commerce", filter: "Products" as CategoryFilter },
+  { image: image23, title: "New Beginnings", category: "Family", filter: "Lifestyle" as CategoryFilter },
+  { image: image24, title: "Live Concert", category: "Event", filter: "Events" as CategoryFilter },
+  { image: image25, title: "Summit Views", category: "Adventure", filter: "Lifestyle" as CategoryFilter },
+  { image: image26, title: "Sneaker Culture", category: "Product", filter: "Products" as CategoryFilter },
+  { image: image27, title: "Sweet Indulgence", category: "Food", filter: "Food & Beverage" as CategoryFilter },
+  { image: image28, title: "City Lights", category: "Aerial", filter: "Photography" as CategoryFilter },
+  { image: image29, title: "Mindful Moments", category: "Wellness", filter: "Lifestyle" as CategoryFilter },
+  { image: image30, title: "Signature Scent", category: "Luxury", filter: "Products" as CategoryFilter },
 ];
 
 const PortfolioSection = () => {
+  const [activeFilter, setActiveFilter] = useState<CategoryFilter>("All");
+
+  const filteredItems = activeFilter === "All" 
+    ? portfolioItems 
+    : portfolioItems.filter(item => item.filter === activeFilter);
+
   return (
     <section id="portfolio" className="py-20 md:py-32">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-12">
           <h2 className="section-title text-5xl md:text-7xl mb-4">OUR WORK</h2>
-          <p className="text-foreground/70 text-lg max-w-2xl mx-auto">
+          <p className="text-foreground/70 text-lg max-w-2xl mx-auto mb-8">
             A curated collection of our finest visual content created for brands across industries
           </p>
+          
+          {/* Category Filter Tabs */}
+          <div className="flex flex-wrap justify-center gap-2 md:gap-3">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setActiveFilter(category)}
+                className={`px-4 py-2 md:px-6 md:py-2.5 rounded-full text-sm md:text-base font-semibold transition-all duration-300 ${
+                  activeFilter === category
+                    ? "bg-foreground text-background shadow-lg"
+                    : "bg-foreground/10 text-foreground hover:bg-foreground/20"
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4 md:gap-6">
-          {portfolioItems.map((item, index) => (
+          {filteredItems.map((item, index) => (
             <PortfolioCard
-              key={index}
+              key={`${item.title}-${index}`}
               image={item.image}
               title={item.title}
               category={item.category}
             />
           ))}
         </div>
+        
+        {filteredItems.length === 0 && (
+          <p className="text-center text-foreground/50 py-12">No items found in this category.</p>
+        )}
       </div>
     </section>
   );
