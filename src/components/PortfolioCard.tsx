@@ -6,8 +6,8 @@ interface PortfolioCardProps {
 
 const PortfolioCard = ({ image, title, category }: PortfolioCardProps) => {
   return (
-    <div className="portfolio-card group">
-      <div className="aspect-square overflow-hidden">
+    <div className="portfolio-card group h-full">
+      <div className="h-full overflow-hidden">
         <img
           src={image}
           alt={title}
