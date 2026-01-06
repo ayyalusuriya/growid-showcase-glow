@@ -1,37 +1,12 @@
 import { useState } from "react";
 import PortfolioCard from "./PortfolioCard";
 
-// Import all portfolio images
+// Import portfolio images
 import image1 from "@/assets/portfolio/image-1.jpg";
 import image2 from "@/assets/portfolio/image-2.jpg";
 import image3 from "@/assets/portfolio/image-3.jpg";
 import image4 from "@/assets/portfolio/image-4.jpg";
 import image5 from "@/assets/portfolio/image-5.jpg";
-import image6 from "@/assets/portfolio/image-6.jpg";
-import image7 from "@/assets/portfolio/image-7.jpg";
-import image8 from "@/assets/portfolio/image-8.jpg";
-import image9 from "@/assets/portfolio/image-9.jpg";
-import image10 from "@/assets/portfolio/image-10.jpg";
-import image11 from "@/assets/portfolio/image-11.jpg";
-import image12 from "@/assets/portfolio/image-12.jpg";
-import image13 from "@/assets/portfolio/image-13.jpg";
-import image14 from "@/assets/portfolio/image-14.jpg";
-import image15 from "@/assets/portfolio/image-15.jpg";
-import image16 from "@/assets/portfolio/image-16.jpg";
-import image17 from "@/assets/portfolio/image-17.jpg";
-import image18 from "@/assets/portfolio/image-18.jpg";
-import image19 from "@/assets/portfolio/image-19.jpg";
-import image20 from "@/assets/portfolio/image-20.jpg";
-import image21 from "@/assets/portfolio/image-21.jpg";
-import image22 from "@/assets/portfolio/image-22.jpg";
-import image23 from "@/assets/portfolio/image-23.jpg";
-import image24 from "@/assets/portfolio/image-24.jpg";
-import image25 from "@/assets/portfolio/image-25.jpg";
-import image26 from "@/assets/portfolio/image-26.jpg";
-import image27 from "@/assets/portfolio/image-27.jpg";
-import image28 from "@/assets/portfolio/image-28.jpg";
-import image29 from "@/assets/portfolio/image-29.jpg";
-import image30 from "@/assets/portfolio/image-30.jpg";
 
 type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Products" | "Fashion";
 
