@@ -1,37 +1,12 @@
 import { useState } from "react";
 import PortfolioCard from "./PortfolioCard";
 
-// Import all portfolio images
+// Import portfolio images
 import image1 from "@/assets/portfolio/image-1.jpg";
 import image2 from "@/assets/portfolio/image-2.jpg";
 import image3 from "@/assets/portfolio/image-3.jpg";
 import image4 from "@/assets/portfolio/image-4.jpg";
 import image5 from "@/assets/portfolio/image-5.jpg";
-import image6 from "@/assets/portfolio/image-6.jpg";
-import image7 from "@/assets/portfolio/image-7.jpg";
-import image8 from "@/assets/portfolio/image-8.jpg";
-import image9 from "@/assets/portfolio/image-9.jpg";
-import image10 from "@/assets/portfolio/image-10.jpg";
-import image11 from "@/assets/portfolio/image-11.jpg";
-import image12 from "@/assets/portfolio/image-12.jpg";
-import image13 from "@/assets/portfolio/image-13.jpg";
-import image14 from "@/assets/portfolio/image-14.jpg";
-import image15 from "@/assets/portfolio/image-15.jpg";
-import image16 from "@/assets/portfolio/image-16.jpg";
-import image17 from "@/assets/portfolio/image-17.jpg";
-import image18 from "@/assets/portfolio/image-18.jpg";
-import image19 from "@/assets/portfolio/image-19.jpg";
-import image20 from "@/assets/portfolio/image-20.jpg";
-import image21 from "@/assets/portfolio/image-21.jpg";
-import image22 from "@/assets/portfolio/image-22.jpg";
-import image23 from "@/assets/portfolio/image-23.jpg";
-import image24 from "@/assets/portfolio/image-24.jpg";
-import image25 from "@/assets/portfolio/image-25.jpg";
-import image26 from "@/assets/portfolio/image-26.jpg";
-import image27 from "@/assets/portfolio/image-27.jpg";
-import image28 from "@/assets/portfolio/image-28.jpg";
-import image29 from "@/assets/portfolio/image-29.jpg";
-import image30 from "@/assets/portfolio/image-30.jpg";
 
 type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Products" | "Fashion";
 
@@ -56,36 +31,11 @@ interface PortfolioItem {
 }
 
 const portfolioItems: PortfolioItem[] = [
-  { image: image1, title: "Product Collection", category: "Product Photography", filter: "Products", size: "large" },
-  { image: image2, title: "Behind The Scenes", category: "Video Production", filter: "Video", size: "medium" },
-  { image: image3, title: "Editorial Shoot", category: "Fashion", filter: "Fashion", size: "tall" },
-  { image: image4, title: "Gourmet Experience", category: "Photography", filter: "Photography", size: "small" },
-  { image: image5, title: "Luxury Timepiece", category: "Product", filter: "Products", size: "medium" },
-  { image: image6, title: "Corporate Event", category: "Event Coverage", filter: "Events", size: "wide" },
-  { image: image7, title: "Modern Living", category: "Real Estate", filter: "Photography", size: "small" },
-  { image: image8, title: "Fitness Campaign", category: "Photography", filter: "Photography", size: "tall" },
-  { image: image9, title: "Beauty Products", category: "Cosmetics", filter: "Products", size: "medium" },
-  { image: image10, title: "Wedding Story", category: "Wedding", filter: "Events", size: "large" },
-  { image: image11, title: "Street Style", category: "Fashion", filter: "Fashion", size: "small" },
-  { image: image12, title: "Automotive Elite", category: "Automotive", filter: "Products", size: "wide" },
-  { image: image13, title: "Tech Showcase", category: "Technology", filter: "Products", size: "medium" },
-  { image: image14, title: "Paradise Found", category: "Travel", filter: "Photography", size: "tall" },
-  { image: image15, title: "Artist Portrait", category: "Music", filter: "Photography", size: "small" },
-  { image: image16, title: "Café Culture", category: "Photography", filter: "Photography", size: "medium" },
-  { image: image17, title: "Diamond Dreams", category: "Jewelry", filter: "Products", size: "large" },
-  { image: image18, title: "Game Day", category: "Sports", filter: "Events", size: "wide" },
-  { image: image19, title: "Best Friend", category: "Pet Photography", filter: "Photography", size: "small" },
-  { image: image20, title: "Fine Dining", category: "Photography", filter: "Photography", size: "medium" },
-  { image: image21, title: "Executive Portrait", category: "Corporate", filter: "Photography", size: "tall" },
-  { image: image22, title: "Style Guide", category: "E-Commerce", filter: "Products", size: "medium" },
-  { image: image23, title: "New Beginnings", category: "Family", filter: "Events", size: "small" },
-  { image: image24, title: "Live Concert", category: "Event", filter: "Events", size: "large" },
-  { image: image25, title: "Summit Views", category: "Adventure", filter: "Photography", size: "wide" },
-  { image: image26, title: "Sneaker Culture", category: "Product", filter: "Products", size: "medium" },
-  { image: image27, title: "Sweet Indulgence", category: "Photography", filter: "Photography", size: "small" },
-  { image: image28, title: "City Lights", category: "Aerial", filter: "Photography", size: "tall" },
-  { image: image29, title: "Mindful Moments", category: "Fashion", filter: "Fashion", size: "medium" },
-  { image: image30, title: "Signature Scent", category: "Luxury", filter: "Products", size: "large" },
+  { image: image1, title: "Vani Bojan Performance", category: "Event Photography", filter: "Events", size: "large" },
+  { image: image2, title: "Stage Performance", category: "Event Coverage", filter: "Events", size: "tall" },
+  { image: image3, title: "Concert Moment", category: "Photography", filter: "Photography", size: "medium" },
+  { image: image4, title: "Artist Portrait", category: "Portrait Photography", filter: "Photography", size: "wide" },
+  { image: image5, title: "Heart Gesture", category: "Event Photography", filter: "Events", size: "tall" },
 ];
 
 const getSizeClasses = (size: SizeVariant): string => {
