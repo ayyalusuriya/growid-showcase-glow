@@ -1,4 +1,13 @@
 const HeroSection = () => {
+  const services = [
+    "Event Management",
+    "Digital Branding", 
+    "Influencer Marketing",
+    "Instant Reels",
+    "Wedding Shoots",
+    "Corporate Events"
+  ];
+
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Decorative elements */}
@@ -8,16 +17,28 @@ const HeroSection = () => {
       </div>
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        <h1 className="section-title text-6xl md:text-8xl lg:text-9xl mb-6">
-          VISUAL STORIES
+        <h1 className="section-title text-6xl md:text-8xl lg:text-9xl mb-4">
+          Growid
         </h1>
-        <h2 className="section-title text-4xl md:text-6xl lg:text-7xl mb-8 text-primary/80">
-          THAT CAPTIVATE
+        <h2 className="text-xl md:text-2xl lg:text-3xl mb-16 text-foreground/80 font-medium">
+          Grow Your Digital Identity
         </h2>
-        <p className="text-lg md:text-xl max-w-2xl mx-auto text-foreground/80 font-medium">
-          Premium content creation for brands that demand excellence. 
-          From stunning photography to cinematic video production.
-        </p>
+        
+        <div className="mt-8">
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-primary">
+            Our Services
+          </h3>
+          <div className="flex flex-wrap justify-center gap-3 md:gap-4 max-w-4xl mx-auto">
+            {services.map((service, index) => (
+              <span
+                key={index}
+                className="px-5 py-3 bg-foreground/10 rounded-full text-sm md:text-base font-semibold hover:bg-primary hover:text-background transition-all duration-300 cursor-pointer"
+              >
+                {service}
+              </span>
+            ))}
+          </div>
+        </div>
         
         <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
           <a

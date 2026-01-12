@@ -7,6 +7,10 @@ import image2 from "@/assets/portfolio/image-2.jpg";
 import image3 from "@/assets/portfolio/image-3.jpg";
 import image4 from "@/assets/portfolio/image-4.jpg";
 import image5 from "@/assets/portfolio/image-5.jpg";
+import image6 from "@/assets/portfolio/image-6.jpg";
+import image7 from "@/assets/portfolio/image-7.jpg";
+import image8 from "@/assets/portfolio/image-8.jpg";
+import image9 from "@/assets/portfolio/image-9.jpg";
 
 type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Products" | "Fashion";
 
@@ -36,6 +40,10 @@ const portfolioItems: PortfolioItem[] = [
   { image: image3, title: "Concert Moment", category: "Photography", filter: "Photography", size: "medium" },
   { image: image4, title: "Artist Portrait", category: "Portrait Photography", filter: "Photography", size: "wide" },
   { image: image5, title: "Heart Gesture", category: "Event Photography", filter: "Events", size: "tall" },
+  { image: image6, title: "Hari Charan Live", category: "Concert Photography", filter: "Events", size: "large" },
+  { image: image7, title: "Hari Charan Performance", category: "Event Coverage", filter: "Events", size: "tall" },
+  { image: image8, title: "Maalavika Concert", category: "Live Performance", filter: "Events", size: "wide" },
+  { image: image9, title: "Onam Celebration", category: "Cultural Events", filter: "Events", size: "medium" },
 ];
 
 const getSizeClasses = (size: SizeVariant): string => {
