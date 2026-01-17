@@ -1,0 +1,121 @@
+/* ===============================
+   GOOGLE FONT – POPPINS
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ===============================
+   TAILWIND BASE
+================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   ROOT BRAND VARIABLES
+================================ */
+:root {
+  --brand-yellow: #fec903;
+  --dark-bg: #000000;
+  --dark-bg-secondary: #222222;
+}
+
+/* ===============================
+   GLOBAL FONT FAMILY
+================================ */
+html, body {
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--dark-bg);
+  color: var(--brand-yellow);
+}
+
+/* Force font everywhere (SAFE) */
+*, *::before, *::after {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===============================
+   FORCE BRAND TEXT COLOR
+   (Fixes Tailwind foreground override)
+================================ */
+.text-foreground {
+  color: var(--brand-yellow) !important;
+}
+
+.text-muted-foreground {
+  color: rgba(254, 201, 3, 0.8) !important;
+}
+
+/* ===============================
+   DEFAULT TEXT ELEMENTS
+================================ */
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, li, label {
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   BUTTON / TAB SAFETY
+================================ */
+button {
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   EVENT CARD ANIMATION (SCOPED)
+================================ */
+.event-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 50px rgba(254, 201, 3, 0.25);
+}
+
+/* ===============================
+   STATS HOVER ANIMATION
+================================ */
+.event-stats span {
+  display: inline-block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.event-card:hover .event-stats span {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+.event-card:hover .event-stats span:nth-child(1) { animation-delay: 0.05s; }
+.event-card:hover .event-stats span:nth-child(2) { animation-delay: 0.1s; }
+.event-card:hover .event-stats span:nth-child(3) { animation-delay: 0.15s; }
+.event-card:hover .event-stats span:nth-child(4) { animation-delay: 0.2s; }
+.event-card:hover .event-stats span:nth-child(5) { animation-delay: 0.25s; }
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===============================
+   GENERIC FADE-UP ANIMATION
+================================ */
+@keyframes fadeUpGlobal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUpGlobal 0.8s ease-out both;
+}
