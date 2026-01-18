@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Index from "./pages/Index";
-import Testimonials from "./pages/testimonials"; // ✅ MUST be lowercase
+import Testimonials from "./pages/Testimonials"; 
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
