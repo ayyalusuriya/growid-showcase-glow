@@ -36,7 +36,7 @@ const VideoSection = () => {
 
         <VideoCard
           title="Instant Reels"
-          subtitle="Automotive Showcase"
+          subtitle="By Growid"
           video={growid2}
         />
 

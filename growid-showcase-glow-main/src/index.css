@@ -1,10 +1,10 @@
 /* ===============================
-   GOOGLE FONT – POPPINS
+   GOOGLE FONT – OPEN SAUCE
 ================================ */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sauce+Sans:wght@300;400;500;600;700;800&display=swap');
 
 /* ===============================
-   TAILWIND BASE
+   TAILWIND
 ================================ */
 @tailwind base;
 @tailwind components;
@@ -20,29 +20,32 @@
 }
 
 /* ===============================
-   GLOBAL FONT FAMILY
+   GLOBAL BASE STYLES
 ================================ */
 html, body {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sauce One', sans-serif;
   background-color: var(--dark-bg);
   color: var(--brand-yellow);
+  margin: 0;
+  padding: 0;
 }
 
-/* Force font everywhere (SAFE) */
+/* Force font everywhere (safe) */
 *, *::before, *::after {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Open Sauce One', sans-serif;
+  box-sizing: border-box;
 }
 
 /* ===============================
    FORCE BRAND TEXT COLOR
-   (Fixes Tailwind foreground override)
+   (Overrides Tailwind foreground)
 ================================ */
 .text-foreground {
   color: var(--brand-yellow) !important;
 }
 
 .text-muted-foreground {
-  color: rgba(254, 201, 3, 0.8) !important;
+  color: rgba(254, 201, 3, 0.75) !important;
 }
 
 /* ===============================
@@ -54,14 +57,32 @@ p, span, a, button, li, label {
 }
 
 /* ===============================
-   BUTTON / TAB SAFETY
+   BUTTON SAFETY
 ================================ */
 button {
   color: var(--brand-yellow);
 }
 
 /* ===============================
-   EVENT CARD ANIMATION (SCOPED)
+   LOGO SLIDE ANIMATION
+================================ */
+@keyframes logoSlide {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-logo-slide {
+  animation: logoSlide 1s ease-out forwards;
+}
+
+/* ===============================
+   EVENT CARD HOVER (SCOPED)
 ================================ */
 .event-card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -103,7 +124,7 @@ button {
 }
 
 /* ===============================
-   GENERIC FADE-UP ANIMATION
+   GENERIC FADE-UP (SAFE)
 ================================ */
 @keyframes fadeUpGlobal {
   from {

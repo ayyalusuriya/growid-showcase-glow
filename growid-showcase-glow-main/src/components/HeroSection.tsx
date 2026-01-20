@@ -7,12 +7,17 @@ const videos = [video1, video2, video3];
 
 const services = [
   "Event Management",
-  "Digital Branding",
-  "Influencer Marketing",
-  "Instant Reels",
-  "Wedding Shoots",
-  "Corporate Events",
   "Celebrity Management",
+  "Instan Reels",
+  "Digital Marketing",
+  "Digital Branding",
+  "Page maintenance",
+  "Influencer Marketing",
+  "Ads Shoot",
+  "Graphics Designing",
+  "Corporate Events",
+  "Poster Designing",
+  "Editing Services"
 ];
 
 const HeroSection = () => {
@@ -44,17 +49,17 @@ const HeroSection = () => {
       <div className="absolute inset-0 bg-black/60 -z-10" />
 
       <div className="container mx-auto px-6 text-center relative z-10">
-        <h1 className="section-title text-6xl md:text-8xl lg:text-9xl mb-4 font-extrabold tracking-wide text-[#fec903]">
+        <h1 className="section-title text-14xl md:text-14xl lg:text-9xl mb-4 font-extrabold tracking-wide text-[#fec903]">
           Growid
         </h1>
 
-        <h2 className="text-xl md:text-2xl lg:text-3xl mb-16 text-[#fec903]/80 font-semibold">
+        <h2 className="text-xl md:text-4xl lg:text-3xl mb-60 text-[#F0EEE9]/80 font-bold tracking-wide">
           Grow Your Digital Identity
         </h2>
 
         {/* SERVICES */}
         <div className="mt-10">
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-12 text-[#fec903] animate-fade-up tracking-wide">
+          <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-16 text-[#fec903] animate-fade-up tracking-wide">
   Our Services
 </h3>
 

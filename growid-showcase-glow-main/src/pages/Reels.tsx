@@ -1,5 +1,5 @@
 import VideoSection from "@/components/VideoSection";
-import Testimonials from "@/pages/testimonials";
+import Testimonials from "@/pages/Testimonials";
 
 const Reels = () => {
   return (
