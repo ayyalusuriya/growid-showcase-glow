@@ -91,7 +91,7 @@ const PortfolioSection = () => {
 
         {/* HEADER */}
         <div className="text-center mb-12">
-          <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903]">
+          <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903] font-bold tracking-wide">
             OUR WORK
           </h2>
           <p className="text-[#fec903]/80 text-lg max-w-2xl mx-auto mb-8">

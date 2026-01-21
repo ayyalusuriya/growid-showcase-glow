@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import video1 from "@/assets/IMG_6307.mp4";
+import video1 from "@/assets/test2.mp4";
 import video2 from "@/assets/test1.mp4";
 
 const TestimonialsSection = () => {
@@ -46,7 +46,7 @@ const TestimonialsSection = () => {
 
         {/* HEADER */}
         <div className="text-center mb-20">
-          <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903]">
+          <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903] font-bold tracking-wide">
             Testimonials
           </h2>
           <p className="text-[#fec903]/80 text-lg">

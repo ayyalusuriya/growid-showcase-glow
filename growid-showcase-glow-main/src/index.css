@@ -1,5 +1,5 @@
 /* ===============================
-   GOOGLE FONT – OPEN SAUCE
+   GOOGLE FONT – OPEN SAUCE SANS
 ================================ */
 @import url('https://fonts.googleapis.com/css2?family=Open+Sauce+Sans:wght@300;400;500;600;700;800&display=swap');
 
@@ -11,34 +11,62 @@
 @tailwind utilities;
 
 /* ===============================
-   ROOT BRAND VARIABLES
+   BRAND VARIABLES
 ================================ */
 :root {
   --brand-yellow: #fec903;
-  --dark-bg: #000000;
-  --dark-bg-secondary: #222222;
 }
 
 /* ===============================
-   GLOBAL BASE STYLES
+   GLOBAL BASE + BACKGROUND
 ================================ */
-html, body {
-  font-family: 'Open Sauce One', sans-serif;
-  background-color: var(--dark-bg);
-  color: var(--brand-yellow);
+html,
+body {
+  min-height: 100%;
   margin: 0;
   padding: 0;
+
+  font-family: 'Open Sauce Sans', system-ui, sans-serif;
+
+  /* ✅ FULL WEBSITE BACKGROUND IMAGE */
+  background-image: url("/bg.JPG");   /* MUST be in /public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--brand-yellow);
 }
 
-/* Force font everywhere (safe) */
+/* ===============================
+   DARK OVERLAY FOR READABILITY
+================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* ===============================
+   FORCE FONT EVERYWHERE
+================================ */
 *, *::before, *::after {
-  font-family: 'Open Sauce One', sans-serif;
+  font-family: 'Open Sauce Sans', system-ui, sans-serif;
   box-sizing: border-box;
 }
 
 /* ===============================
    FORCE BRAND TEXT COLOR
-   (Overrides Tailwind foreground)
+================================ */
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, li, label {
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   TAILWIND FOREGROUND FIX
 ================================ */
 .text-foreground {
   color: var(--brand-yellow) !important;
@@ -46,14 +74,6 @@ html, body {
 
 .text-muted-foreground {
   color: rgba(254, 201, 3, 0.75) !important;
-}
-
-/* ===============================
-   DEFAULT TEXT ELEMENTS
-================================ */
-h1, h2, h3, h4, h5, h6,
-p, span, a, button, li, label {
-  color: var(--brand-yellow);
 }
 
 /* ===============================
@@ -82,7 +102,7 @@ button {
 }
 
 /* ===============================
-   EVENT CARD HOVER (SCOPED)
+   EVENT CARD HOVER
 ================================ */
 .event-card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -94,24 +114,8 @@ button {
 }
 
 /* ===============================
-   STATS HOVER ANIMATION
+   STATS FADE-UP ANIMATION
 ================================ */
-.event-stats span {
-  display: inline-block;
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.event-card:hover .event-stats span {
-  animation: fadeUp 0.5s ease forwards;
-}
-
-.event-card:hover .event-stats span:nth-child(1) { animation-delay: 0.05s; }
-.event-card:hover .event-stats span:nth-child(2) { animation-delay: 0.1s; }
-.event-card:hover .event-stats span:nth-child(3) { animation-delay: 0.15s; }
-.event-card:hover .event-stats span:nth-child(4) { animation-delay: 0.2s; }
-.event-card:hover .event-stats span:nth-child(5) { animation-delay: 0.25s; }
-
 @keyframes fadeUp {
   from {
     opacity: 0;
@@ -123,8 +127,12 @@ button {
   }
 }
 
+.event-card:hover .event-stats span {
+  animation: fadeUp 0.5s ease forwards;
+}
+
 /* ===============================
-   GENERIC FADE-UP (SAFE)
+   GENERIC FADE-UP
 ================================ */
 @keyframes fadeUpGlobal {
   from {
