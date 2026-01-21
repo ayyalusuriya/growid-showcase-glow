@@ -1,12 +1,33 @@
-import { useRef } from "react";
-import video1 from "@/assets/test2.mp4";
+import { useRef, useEffect, useState } from "react";
+
+const TESTIMONIAL_VIDEO_URL =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_6307_ustcqj.mp4";
 
 const TestimonialsSection = () => {
   const videoRef1 = useRef<HTMLVideoElement | null>(null);
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
 
-  // Generic handlers
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   const handleHover = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    if (videoRef.current) {
+    if (videoRef.current && shouldLoad) {
       videoRef.current.muted = true;
       videoRef.current.currentTime = 0;
       videoRef.current.play().catch(() => {});
@@ -42,7 +63,6 @@ const TestimonialsSection = () => {
     <section id="testimonials" className="py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
 
-        {/* HEADER */}
         <div className="text-center mb-20">
           <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903] font-bold">
             Testimonials
@@ -52,10 +72,9 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* SINGLE TESTIMONIAL */}
         <div className="flex justify-center">
-
           <div
+            ref={containerRef}
             onMouseEnter={() => handleHover(videoRef1)}
             onMouseLeave={() => handleLeave(videoRef1)}
             onClick={() => handleClick(videoRef1)}
@@ -72,9 +91,15 @@ const TestimonialsSection = () => {
               ref={videoRef1}
               playsInline
               preload="metadata"
+              muted
               className="absolute inset-0 w-full h-full object-cover"
             >
-              <source src={video1} />
+              {shouldLoad && (
+                <source
+                  src={TESTIMONIAL_VIDEO_URL}
+                  type="video/mp4"
+                />
+              )}
             </video>
 
             <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all" />
@@ -94,8 +119,8 @@ const TestimonialsSection = () => {
               </div>
             </div>
           </div>
-
         </div>
+
       </div>
     </section>
   );

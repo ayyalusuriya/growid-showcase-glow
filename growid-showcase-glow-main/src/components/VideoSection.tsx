@@ -1,9 +1,22 @@
 import VideoCard from "@/components/VideoCard";
 
-import growid5 from "@/assets/growid5.mp4";
-import growid3 from "@/assets/growid3.mp4";
-import growid2 from "@/assets/growid2.mp4";
-import growidReel from "@/assets/IMG_4443.mp4";
+// import growid5 from "@/assets/growid5.mp4";
+// import growid3 from "@/assets/growid3.mp4";
+// import growid2 from "@/assets/growid2.mp4";
+// import growidReel from "@/assets/IMG_4443.mp4";
+
+const GROWID5_URL =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/growid5_qmiqfv.mp4";
+
+const GROWID3_URL =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/growid3_toup0j.mp4";
+
+const GROWID2_URL =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/growid2_cvvwgp.mp4";
+
+const GROWID_REEL_URL =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_4443_k1blk1.mp4";
+
 
 const VideoSection = () => {
   return (
@@ -25,25 +38,25 @@ const VideoSection = () => {
         <VideoCard
           title="Aarambam"
           subtitle="Brand Commercial"
-          video={growid5}
+          video={GROWID5_URL}
         />
 
         <VideoCard
           title="Event Coverage"
           subtitle="Corporate Event Highlights"
-          video={growid3}
+          video={GROWID3_URL}
         />
 
         <VideoCard
           title="Instant Reels"
           subtitle="By Growid"
-          video={growid2}
+          video={GROWID2_URL}
         />
 
         <VideoCard
           title="Reels"
           subtitle="Reels By Growid"
-          video={growidReel}
+          video={GROWID_REEL_URL}
         />
 
       </div>
