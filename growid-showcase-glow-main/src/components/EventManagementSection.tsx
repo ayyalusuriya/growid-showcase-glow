@@ -20,7 +20,7 @@ const EventManagementSection = () => {
 
           {/* STATS */}
           <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold text-[#fec903] mb-6">
-            <span>7,500+ people</span>
+            <span>10,000+ people</span>
             <span>•</span>
             <span>One night</span>
             <span>•</span>

@@ -17,7 +17,7 @@ const Footer = () => {
               <Phone className="w-5 h-5" />
               <span className="hidden sm:inline">8072559071</span>
             </a>
-            <a href="https://instagram.com/growid" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-card-foreground/80 hover:text-accent transition-colors">
+            <a href="https://www.instagram.com/growid_official/" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-card-foreground/80 hover:text-accent transition-colors">
               <Instagram className="w-5 h-5" />
               <span className="hidden sm:inline">@growid_official</span>
             </a>

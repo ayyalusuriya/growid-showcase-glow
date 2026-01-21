@@ -1,10 +1,14 @@
 import { useEffect, useState } from "react";
-import video1 from "../assets/growid3.mp4";
-import video2 from "../assets/growid2.mp4";
-import video3 from "../assets/growid5.mp4";
+import Header from "@/components/Header";
 
-const videos = [video1, video2, video3];
+/* ================= CLOUDINARY HERO VIDEOS ================= */
+const videos = [
+  "https://res.cloudinary.com/dlhudsqax/video/upload/q_auto,f_auto/growid3.mp4",
+  "https://res.cloudinary.com/dlhudsqax/video/upload/q_auto,f_auto/growid2.mp4",
+  "https://res.cloudinary.com/dlhudsqax/video/upload/q_auto,f_auto/growid5.mp4",
+];
 
+/* ================= SERVICES LIST ================= */
 const services = [
   "Event Management",
   "Celebrity Management",
@@ -23,17 +27,22 @@ const services = [
 const HeroSection = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
 
+  /* ================= VIDEO ROTATION ================= */
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % videos.length);
     }, 6000);
+
     return () => clearInterval(interval);
   }, []);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden pt-24">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24">
 
-      {/* BACKGROUND VIDEO */}
+      {/* ================= HEADER LOGO (ONLY HERO) ================= */}
+      <Header />
+
+      {/* ================= BACKGROUND VIDEO ================= */}
       <video
         key={currentVideo}
         autoPlay
@@ -45,17 +54,18 @@ const HeroSection = () => {
         <source src={videos[currentVideo]} type="video/mp4" />
       </video>
 
-      {/* DARK OVERLAY */}
+      {/* ================= DARK OVERLAY ================= */}
       <div className="absolute inset-0 bg-black/60 -z-10" />
 
+      {/* ================= CONTENT ================= */}
       <div className="container mx-auto px-6 text-center relative z-10">
 
-        {/* BRAND */}
+        {/* ================= BRAND ================= */}
         <h1 className="section-title text-7xl md:text-8xl lg:text-9xl mb-6 font-extrabold tracking-wide text-[#fec903]">
           Growid
         </h1>
 
-        <h2 className="text-xl md:text-3xl lg:text-3xl mb-20 text-[#fec903]/80 font-bold tracking-wide">
+        <h2 className="text-xl md:text-3xl mb-20 text-[#fec903]/80 font-bold tracking-wide">
           Grow Your Digital Identity
         </h2>
 
@@ -75,7 +85,7 @@ const HeroSection = () => {
               About Us
             </h3>
 
-            <p className="text-[#fec903]/80 text-base md:text-bold leading-relaxed">
+            <p className="text-[#fec903]/80 text-base leading-relaxed">
               Grow.id is a creative production and event management company
               specializing in event production, instant reels, celebrity
               management, and large-scale executions, along with complete
@@ -87,7 +97,7 @@ const HeroSection = () => {
 
         {/* ================= OUR SERVICES ================= */}
         <div className="mt-10">
-          <h3 className="text-4xl md:text-5xl lg:text-6xl font-extrabold mb-16 text-[#fec903] animate-fade-up tracking-wide">
+          <h3 className="text-4xl md:text-5xl font-extrabold mb-16 text-[#fec903] tracking-wide animate-fade-up">
             Our Services
           </h3>
 
@@ -141,6 +151,7 @@ const HeroSection = () => {
             Watch Reels
           </a>
         </div>
+
       </div>
     </section>
   );
