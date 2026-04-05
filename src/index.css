@@ -1,0 +1,150 @@
+/* ===============================
+   GOOGLE FONT – OPEN SAUCE SANS
+================================ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sauce+Sans:wght@300;400;500;600;700;800&display=swap');
+
+/* ===============================
+   TAILWIND
+================================ */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===============================
+   BRAND VARIABLES
+================================ */
+:root {
+  --brand-yellow: #fec903;
+}
+
+/* ===============================
+   GLOBAL BASE + BACKGROUND
+================================ */
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
+
+  font-family: 'Open Sauce Sans', system-ui, sans-serif;
+
+  /* ✅ FULL WEBSITE BACKGROUND IMAGE */
+  background-image: url("/bg.JPG");   /* MUST be in /public */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   DARK OVERLAY FOR READABILITY
+================================ */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  z-index: -1;
+}
+
+/* ===============================
+   FORCE FONT EVERYWHERE
+================================ */
+*, *::before, *::after {
+  font-family: 'Open Sauce Sans', system-ui, sans-serif;
+  box-sizing: border-box;
+}
+
+/* ===============================
+   FORCE BRAND TEXT COLOR
+================================ */
+h1, h2, h3, h4, h5, h6,
+p, span, a, button, li, label {
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   TAILWIND FOREGROUND FIX
+================================ */
+.text-foreground {
+  color: var(--brand-yellow) !important;
+}
+
+.text-muted-foreground {
+  color: rgba(254, 201, 3, 0.75) !important;
+}
+
+/* ===============================
+   BUTTON SAFETY
+================================ */
+button {
+  color: var(--brand-yellow);
+}
+
+/* ===============================
+   LOGO SLIDE ANIMATION
+================================ */
+@keyframes logoSlide {
+  from {
+    transform: translateX(-40px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.animate-logo-slide {
+  animation: logoSlide 1s ease-out forwards;
+}
+
+/* ===============================
+   EVENT CARD HOVER
+================================ */
+.event-card {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-8px) scale(1.01);
+  box-shadow: 0 18px 50px rgba(254, 201, 3, 0.25);
+}
+
+/* ===============================
+   STATS FADE-UP ANIMATION
+================================ */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.event-card:hover .event-stats span {
+  animation: fadeUp 0.5s ease forwards;
+}
+
+/* ===============================
+   GENERIC FADE-UP
+================================ */
+@keyframes fadeUpGlobal {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-up {
+  animation: fadeUpGlobal 0.8s ease-out both;
+}
