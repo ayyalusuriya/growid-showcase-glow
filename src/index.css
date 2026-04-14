@@ -148,3 +148,26 @@ button {
 .animate-fade-up {
   animation: fadeUpGlobal 0.8s ease-out both;
 }
+
+/* ===============================
+   REELS AUTO SLIDE (RIGHT → LEFT)
+================================ */
+@keyframes reelsSlide {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-reels {
+  display: flex;
+  width: max-content;
+  animation: reelsSlide 25s linear infinite;
+}
+
+/* Pause on hover */
+.animate-reels:hover {
+  animation-play-state: paused;
+}

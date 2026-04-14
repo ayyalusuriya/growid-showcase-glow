@@ -22,15 +22,22 @@ import image17 from "@/assets/portfolio/anddd.jpg.jpeg";
 import image18 from "@/assets/portfolio/pro 2.jpg.jpeg";
 import image19 from "@/assets/portfolio/pro 3.jpg.jpeg";
 import image20 from "@/assets/portfolio/fsfsf.jpg.jpeg";
+import image21 from "@/assets/portfolio/A1.jpg.jpeg";
+import image22 from "@/assets/portfolio/IMG_0009.jpg.jpeg";
+import image23 from "@/assets/portfolio/IMG_0223.jpg.jpeg";
+import image24 from "@/assets/portfolio/IMG_0289.jpg.jpeg";
+import image25 from "@/assets/portfolio/IMG_0474.jpg.jpeg";
+import image26 from "@/assets/portfolio/ugjgj.jpg.jpeg";
 
-type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Products";
+
+type CategoryFilter = "All" | "Photography" | "Video" | "Events" | "Andrea" ;
 
 const categories: CategoryFilter[] = [
   "All",
   "Photography",
   "Video",
   "Events",
-  "Products",
+  "Andrea",
 ];
 
 type SizeVariant = "small" | "medium" | "large" | "tall" | "wide";
@@ -55,15 +62,23 @@ const portfolioItems: PortfolioItem[] = [
   { image: image9, title: "Onam", category: "Event", filter: "Events", size: "tall" },
   { image: image11, title: "Onam", category: "Event", filter: "Events", size: "tall" },
   { image: image12, title: "Onam", category: "Event", filter: "Events", size: "tall" },
-  { image: image13, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
+  { image: image13, title: "Conert", category: "Event", filter: "Events", size: "tall" },
   { image: image14, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
   { image: image15, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
   { image: image16, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
-  { image: image17, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
-  { image: image18, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
-  { image: image19, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
-  { image: image20, title: "Sparkz", category: "Event", filter: "Events", size: "tall" },
+  { image: image17, title: "Concert", category: "Andrea", filter: "Andrea", size: "tall" },
+  { image: image18, title: "Concert", category: "Andrea", filter: "Andrea", size: "tall" },
+  { image: image19, title: "Concert", category: "Andrea", filter: "Andrea", size: "tall" },
+  { image: image20, title: "Concert", category: "Event", filter: "Events", size: "tall" },
   { image: image10, title: "Vizag", category: "Event", filter: "Events", size: "medium" },
+  { image: image21, title: "Concert", category: "Andrea", filter: "Andrea", size: "medium" },
+  { image: image22, title: "Concert", category: "Andrea", filter: "Andrea", size: "wide" },
+  { image: image23, title: "Concert", category: "Andrea", filter: "Andrea", size: "medium" },
+  { image: image24, title: "Concert", category: "Andrea", filter: "Andrea", size: "wide" },
+  { image: image25, title: "Concert", category: "Andrea", filter: "Andrea", size: "medium" },
+  { image: image26, title: "Concert", category: "Andrea", filter: "Andrea", size: "medium" },
+
+  
 ];
 
 const getSizeClasses = (size: SizeVariant): string => {

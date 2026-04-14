@@ -16,7 +16,7 @@ const Index = () => {
 
 <EventManagementSection />   
 
-<PortfolioSection />         // OUR WORK
+<PortfolioSection />         
 <VideoSection />
 <TestimonialsSection />
 <Footer />

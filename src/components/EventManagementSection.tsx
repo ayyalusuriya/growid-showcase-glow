@@ -29,7 +29,7 @@ const EventManagementSection = () => {
 
           <p className="text-[#fec903]/80 leading-relaxed">
             Aarambam ’26 was Salem’s biggest New Year Party, welcoming an audience
-            of over 7,500+ people. Grow.id was entrusted with both event management
+            of over 10,000+ people. Grow.id was entrusted with both event management
             and real-time digital content creation, delivering a seamless
             on-ground experience along with instant online visibility.
           </p>
@@ -56,6 +56,33 @@ const EventManagementSection = () => {
             Kalasalingam University, brought together over 5,000+ students for
             two days of performances, shows, and large-scale attractions.
             Grow.id ensured flawless event execution and strong digital presence.
+          </p>
+        </div>
+
+        {/* SPARKZ 26 */}
+        <div className="group bg-black rounded-3xl p-8 border border-[#fec903]/30 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_20px_50px_rgba(254,201,3,0.25)] md:col-span-2">
+          
+          <h3 className="text-2xl font-bold text-[#fec903] mb-5">
+            SPARKZ ’26
+          </h3>
+
+          {/* STATS */}
+          <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold text-[#fec903] mb-6">
+            <span>11,000+ students</span>
+            <span>•</span>
+            <span>One unforgettable fest</span>
+            <span>•</span>
+            <span>Star-studded experience</span>
+          </p>
+
+          <p className="text-[#fec903]/80 leading-relaxed">
+            SPARKZ’26, the grand college cultural event, brought together over
+            11,000+ students for an electrifying celebration of talent, music,
+            and entertainment. The highlight of the fest was the sensational
+            Andrea concert that energized the crowd. The event also featured
+            special appearances by Pallichatthambi movie stars Tovino Thomas
+            and Kayadu Lohar, adding excitement and star power to the event.
+            Grow.id ensured seamless execution along with impactful digital presence.
           </p>
         </div>
 
