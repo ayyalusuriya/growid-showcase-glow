@@ -29,7 +29,7 @@ const VideoCard = ({ title, subtitle, video, onClick }) => {
       onMouseLeave={() => setHovered(false)}
       onClick={() => onClick(video)}
       className="relative w-[260px] h-[520px] rounded-3xl overflow-hidden 
-                 cursor-pointer bg-black 
+                 cursor-pointer bg-black flex-shrink-0
                  border border-[#fec903]/20 
                  transition-all duration-500 
                  hover:scale-105 hover:shadow-[0_0_40px_#fec903]"
@@ -45,7 +45,7 @@ const VideoCard = ({ title, subtitle, video, onClick }) => {
         {shouldLoad && <source src={video} type="video/mp4" />}
       </video>
 
-      {/* DARK OVERLAY */}
+      {/* OVERLAY */}
       {!hovered && <div className="absolute inset-0 bg-black/50 z-10" />}
 
       {/* PLAY BUTTON */}

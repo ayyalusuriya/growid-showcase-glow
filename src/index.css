@@ -28,8 +28,7 @@ body {
 
   font-family: 'Open Sauce Sans', system-ui, sans-serif;
 
-  /* ✅ FULL WEBSITE BACKGROUND IMAGE */
-  background-image: url("/bg.JPG");   /* MUST be in /public */
+  background-image: url("/bg.JPG");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -39,7 +38,7 @@ body {
 }
 
 /* ===============================
-   DARK OVERLAY FOR READABILITY
+   DARK OVERLAY
 ================================ */
 body::before {
   content: "";
@@ -50,7 +49,7 @@ body::before {
 }
 
 /* ===============================
-   FORCE FONT EVERYWHERE
+   GLOBAL FONT + BOX
 ================================ */
 *, *::before, *::after {
   font-family: 'Open Sauce Sans', system-ui, sans-serif;
@@ -58,16 +57,13 @@ body::before {
 }
 
 /* ===============================
-   FORCE BRAND TEXT COLOR
+   TEXT COLORS
 ================================ */
 h1, h2, h3, h4, h5, h6,
 p, span, a, button, li, label {
   color: var(--brand-yellow);
 }
 
-/* ===============================
-   TAILWIND FOREGROUND FIX
-================================ */
 .text-foreground {
   color: var(--brand-yellow) !important;
 }
@@ -77,14 +73,14 @@ p, span, a, button, li, label {
 }
 
 /* ===============================
-   BUTTON SAFETY
+   BUTTON
 ================================ */
 button {
   color: var(--brand-yellow);
 }
 
 /* ===============================
-   LOGO SLIDE ANIMATION
+   LOGO ANIMATION
 ================================ */
 @keyframes logoSlide {
   from {
@@ -102,7 +98,7 @@ button {
 }
 
 /* ===============================
-   EVENT CARD HOVER
+   EVENT CARD
 ================================ */
 .event-card {
   transition: transform 0.4s ease, box-shadow 0.4s ease;
@@ -114,7 +110,7 @@ button {
 }
 
 /* ===============================
-   STATS FADE-UP ANIMATION
+   FADE UP
 ================================ */
 @keyframes fadeUp {
   from {
@@ -131,9 +127,6 @@ button {
   animation: fadeUp 0.5s ease forwards;
 }
 
-/* ===============================
-   GENERIC FADE-UP
-================================ */
 @keyframes fadeUpGlobal {
   from {
     opacity: 0;
@@ -150,24 +143,13 @@ button {
 }
 
 /* ===============================
-   REELS AUTO SLIDE (RIGHT → LEFT)
+   SCROLLBAR HIDE (IMPORTANT)
 ================================ */
-@keyframes reelsSlide {
-  0% {
-    transform: translateX(0%);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
 
-.animate-reels {
-  display: flex;
-  width: max-content;
-  animation: reelsSlide 25s linear infinite;
-}
-
-/* Pause on hover */
-.animate-reels:hover {
-  animation-play-state: paused;
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
