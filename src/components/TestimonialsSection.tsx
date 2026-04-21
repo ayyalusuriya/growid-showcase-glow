@@ -7,11 +7,10 @@ const TESTIMONIAL_VIDEO_2 =
   "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_6307_ustcqj.mp4";
 
 const TestimonialsSection = () => {
-  const videoRef1 = useRef<HTMLVideoElement | null>(null);
-  const videoRef2 = useRef<HTMLVideoElement | null>(null);
-
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
+
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -24,47 +23,9 @@ const TestimonialsSection = () => {
       { threshold: 0.3 }
     );
 
-    if (containerRef.current) {
-      observer.observe(containerRef.current);
-    }
-
+    if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
-
-  const handleHover = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    if (videoRef.current && shouldLoad) {
-      videoRef.current.muted = true;
-      videoRef.current.currentTime = 0;
-      videoRef.current.play().catch(() => {});
-    }
-  };
-
-  const handleLeave = (videoRef: React.RefObject<HTMLVideoElement>) => {
-    if (videoRef.current) {
-      videoRef.current.pause();
-      videoRef.current.currentTime = 0;
-    }
-  };
-
-  const handleClick = async (videoRef: React.RefObject<HTMLVideoElement>) => {
-    const video = videoRef.current;
-    if (!video) return;
-
-    video.muted = false;
-    video.controls = true;
-
-    try {
-      if (video.requestFullscreen) {
-        await video.requestFullscreen();
-      } else if ((video as any).webkitRequestFullscreen) {
-        (video as any).webkitRequestFullscreen();
-      }
-
-      await video.play();
-    } catch (err) {
-      console.log(err);
-    }
-  };
 
   return (
     <section id="testimonials" className="py-32 bg-background">
@@ -72,7 +33,7 @@ const TestimonialsSection = () => {
 
         {/* TITLE */}
         <div className="text-center mb-20">
-          <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903] font-bold">
+          <h2 className="text-5xl md:text-7xl text-[#fec903] font-bold">
             Testimonials
           </h2>
           <p className="text-[#fec903]/80 text-lg">
@@ -80,87 +41,75 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        {/* TWO CARDS */}
+        {/* CARDS */}
         <div
           ref={containerRef}
           className="flex flex-col md:flex-row gap-10 justify-center items-center"
         >
-          {/* CARD 1 */}
-          <div
-            onMouseEnter={() => handleHover(videoRef1)}
-            onMouseLeave={() => handleLeave(videoRef1)}
-            onClick={() => handleClick(videoRef1)}
-            className="relative w-full max-w-[720px] h-[380px] rounded-3xl overflow-hidden bg-black cursor-pointer group shadow-2xl hover:scale-[1.05] transition-all duration-500"
-          >
-            <video
-              ref={videoRef1}
-              playsInline
-              preload="metadata"
-              muted
-              className="absolute inset-0 w-full h-full object-cover"
+          {[TESTIMONIAL_VIDEO_1, TESTIMONIAL_VIDEO_2].map((video, i) => (
+            <div
+              key={i}
+              onClick={() => setActiveVideo(video)}
+              className="relative w-full max-w-[720px] h-[380px] rounded-3xl overflow-hidden bg-black cursor-pointer group shadow-2xl hover:scale-[1.05] transition-all duration-500"
             >
-              {shouldLoad && (
-                <source src={TESTIMONIAL_VIDEO_1} type="video/mp4" />
-              )}
-            </video>
+              <video
+                playsInline
+                preload="metadata"
+                muted
+                className="absolute inset-0 w-full h-full object-cover"
+              >
+                {shouldLoad && <source src={video} type="video/mp4" />}
+              </video>
 
-            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all" />
+              {/* Overlay */}
+              <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all" />
 
-            <div className="absolute bottom-8 left-8 z-10">
-              <h3 className="text-[#fec903] text-3xl font-semibold">
-                Aarambam ’26
-              </h3>
-              <p className="text-[#fec903]/80 text-base">
-                Salem’s Biggest New Year Celebration
-              </p>
-            </div>
+              {/* Text */}
+              <div className="absolute bottom-8 left-8 z-10">
+                <h3 className="text-[#fec903] text-3xl font-semibold">
+                  {i === 0 ? "Aarambam ’26" : "AARAMBAM'2k26"}
+                </h3>
+                <p className="text-[#fec903]/80 text-base">
+                  {i === 0
+                    ? "Salem’s Biggest New Year Celebration"
+                    : "Drone View Experience"}
+                </p>
+              </div>
 
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="w-20 h-20 rounded-full bg-[#fec903] text-black text-3xl font-bold flex items-center justify-center group-hover:scale-125 transition">
-                ▶
+              {/* Play Button */}
+              <div className="absolute inset-0 flex items-center justify-center z-10">
+                <div className="w-20 h-20 rounded-full bg-[#fec903] text-black text-3xl font-bold flex items-center justify-center group-hover:scale-125 transition">
+                  ▶
+                </div>
               </div>
             </div>
-          </div>
+          ))}
+        </div>
+      </div>
 
-          {/* CARD 2 */}
-          <div
-            onMouseEnter={() => handleHover(videoRef2)}
-            onMouseLeave={() => handleLeave(videoRef2)}
-            onClick={() => handleClick(videoRef2)}
-            className="relative w-full max-w-[720px] h-[380px] rounded-3xl overflow-hidden bg-black cursor-pointer group shadow-2xl hover:scale-[1.05] transition-all duration-500"
+      {/* 🎬 MODAL */}
+      {activeVideo && (
+        <div className="fixed inset-0 bg-black/90 backdrop-blur-md flex items-center justify-center z-50">
+          
+          {/* CLOSE BUTTON */}
+          <button
+            onClick={() => setActiveVideo(null)}
+            className="absolute top-6 right-6 text-white text-3xl z-50"
           >
+            ✕
+          </button>
+
+          {/* VIDEO */}
+          <div className="w-[90%] md:w-[70%] lg:w-[60%]">
             <video
-              ref={videoRef2}
-              playsInline
-              preload="metadata"
-              muted
-              className="absolute inset-0 w-full h-full object-cover"
-            >
-              {shouldLoad && (
-                <source src={TESTIMONIAL_VIDEO_2} type="video/mp4" />
-              )}
-            </video>
-
-            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all" />
-
-            <div className="absolute bottom-8 left-8 z-10">
-              <h3 className="text-[#fec903] text-3xl font-semibold">
-                AARAMBAM'2k26
-              </h3>
-              <p className="text-[#fec903]/80 text-base">
-              Salem’s Biggest New Year Celebration - Drone View
-              </p>
-            </div>
-
-            <div className="absolute inset-0 flex items-center justify-center z-10">
-              <div className="w-20 h-20 rounded-full bg-[#fec903] text-black text-3xl font-bold flex items-center justify-center group-hover:scale-125 transition">
-                ▶
-              </div>
-            </div>
+              src={activeVideo}
+              controls
+              autoPlay
+              className="w-full h-auto rounded-xl shadow-2xl"
+            />
           </div>
         </div>
-
-      </div>
+      )}
     </section>
   );
 };
