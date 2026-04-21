@@ -69,9 +69,9 @@ const EventManagementSection = () => {
           {/* STATS */}
         <p className="flex flex-wrap justify-center md:justify-start gap-3 text-[#fec903] text-base md:text-lg font-bold">
           <span>11,000+ students</span>
-          <span className="hidden sm:inline">•</span>
+          <span>•</span>
           <span>One unforgettable fest</span>
-          <span className="hidden sm:inline">•</span>
+          <span>•</span>
           <span>Star-studded experience</span>
         </p>
 
