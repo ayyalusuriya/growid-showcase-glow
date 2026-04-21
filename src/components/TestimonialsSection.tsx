@@ -1,10 +1,15 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 
-const TESTIMONIAL_VIDEO_URL =
+const TESTIMONIAL_VIDEO_1 =
+  "https://res.cloudinary.com/dlhudsqax/video/upload/v1769014656/test2_fgpurc.mp4";
+
+const TESTIMONIAL_VIDEO_2 =
   "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_6307_ustcqj.mp4";
 
 const TestimonialsSection = () => {
   const videoRef1 = useRef<HTMLVideoElement | null>(null);
+  const videoRef2 = useRef<HTMLVideoElement | null>(null);
+
   const containerRef = useRef<HTMLDivElement | null>(null);
   const [shouldLoad, setShouldLoad] = useState(false);
 
@@ -48,21 +53,24 @@ const TestimonialsSection = () => {
     video.muted = false;
     video.controls = true;
 
-    if (video.requestFullscreen) {
-      await video.requestFullscreen();
-    } else if ((video as any).webkitRequestFullscreen) {
-      (video as any).webkitRequestFullscreen();
-    } else if ((video as any).msRequestFullscreen) {
-      (video as any).msRequestFullscreen();
-    }
+    try {
+      if (video.requestFullscreen) {
+        await video.requestFullscreen();
+      } else if ((video as any).webkitRequestFullscreen) {
+        (video as any).webkitRequestFullscreen();
+      }
 
-    video.play();
+      await video.play();
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   return (
     <section id="testimonials" className="py-32 bg-background">
       <div className="container mx-auto px-4 md:px-6">
 
+        {/* TITLE */}
         <div className="text-center mb-20">
           <h2 className="section-title text-5xl md:text-7xl mb-4 text-[#fec903] font-bold">
             Testimonials
@@ -72,20 +80,17 @@ const TestimonialsSection = () => {
           </p>
         </div>
 
-        <div className="flex justify-center">
+        {/* TWO CARDS */}
+        <div
+          ref={containerRef}
+          className="flex flex-col md:flex-row gap-10 justify-center items-center"
+        >
+          {/* CARD 1 */}
           <div
-            ref={containerRef}
             onMouseEnter={() => handleHover(videoRef1)}
             onMouseLeave={() => handleLeave(videoRef1)}
             onClick={() => handleClick(videoRef1)}
-            className="
-              relative w-full max-w-[720px] h-[380px]
-              rounded-3xl overflow-hidden bg-black
-              cursor-pointer group
-              shadow-2xl
-              hover:scale-[1.05]
-              transition-all duration-500
-            "
+            className="relative w-full max-w-[720px] h-[380px] rounded-3xl overflow-hidden bg-black cursor-pointer group shadow-2xl hover:scale-[1.05] transition-all duration-500"
           >
             <video
               ref={videoRef1}
@@ -95,10 +100,7 @@ const TestimonialsSection = () => {
               className="absolute inset-0 w-full h-full object-cover"
             >
               {shouldLoad && (
-                <source
-                  src={TESTIMONIAL_VIDEO_URL}
-                  type="video/mp4"
-                />
+                <source src={TESTIMONIAL_VIDEO_1} type="video/mp4" />
               )}
             </video>
 
@@ -110,6 +112,43 @@ const TestimonialsSection = () => {
               </h3>
               <p className="text-[#fec903]/80 text-base">
                 Salem’s Biggest New Year Celebration
+              </p>
+            </div>
+
+            <div className="absolute inset-0 flex items-center justify-center z-10">
+              <div className="w-20 h-20 rounded-full bg-[#fec903] text-black text-3xl font-bold flex items-center justify-center group-hover:scale-125 transition">
+                ▶
+              </div>
+            </div>
+          </div>
+
+          {/* CARD 2 */}
+          <div
+            onMouseEnter={() => handleHover(videoRef2)}
+            onMouseLeave={() => handleLeave(videoRef2)}
+            onClick={() => handleClick(videoRef2)}
+            className="relative w-full max-w-[720px] h-[380px] rounded-3xl overflow-hidden bg-black cursor-pointer group shadow-2xl hover:scale-[1.05] transition-all duration-500"
+          >
+            <video
+              ref={videoRef2}
+              playsInline
+              preload="metadata"
+              muted
+              className="absolute inset-0 w-full h-full object-cover"
+            >
+              {shouldLoad && (
+                <source src={TESTIMONIAL_VIDEO_2} type="video/mp4" />
+              )}
+            </video>
+
+            <div className="absolute inset-0 bg-black/50 group-hover:bg-black/20 transition-all" />
+
+            <div className="absolute bottom-8 left-8 z-10">
+              <h3 className="text-[#fec903] text-3xl font-semibold">
+                AARAMBAM'2k26
+              </h3>
+              <p className="text-[#fec903]/80 text-base">
+              Salem’s Biggest New Year Celebration - Drone View
               </p>
             </div>
 

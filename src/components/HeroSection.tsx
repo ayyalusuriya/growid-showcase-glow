@@ -86,7 +86,7 @@ const HeroSection = () => {
             </h3>
 
             <p className="text-[#fec903]/80 text-base leading-relaxed">
-              Grow.id is a creative production and event management company
+              Growid is a creative production and event management company
               specializing in event production, instant reels, celebrity
               management, and large-scale executions, along with complete
               branding, content, design, and marketing support — built to turn
@@ -127,32 +127,10 @@ const HeroSection = () => {
         </div>
 
         {/* ================= CTA BUTTONS ================= */}
-        <div className="mt-20 flex flex-col sm:flex-row gap-6 justify-center items-center">
-          <a
-            href="#portfolio"
-            className="
-              px-10 py-4 rounded-full
-              border border-[#fec903]
-              text-[#fec903] font-semibold
-              hover:bg-[#fec903] hover:text-black
-              transition-all duration-300
-            "
-          >
-            View Portfolio
-          </a>
-
-          <a
-            href="#videos"
-            className="flex items-center gap-3 text-[#fec903] font-semibold"
-          >
-            <span className="w-10 h-14 rounded-full border-2 border-[#fec903] flex items-center justify-center">
-              ●
-            </span>
-            Watch Reels
-          </a>
+      
         </div>
 
-      </div>
+
     </section>
   );
 };

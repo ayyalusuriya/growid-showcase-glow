@@ -3,10 +3,8 @@ import React, { useRef, useState, useEffect } from "react";
 const VideoCard = ({ title, subtitle, video, onClick }) => {
   const videoRef = useRef(null);
   const containerRef = useRef(null);
-
   const [hovered, setHovered] = useState(false);
   const [shouldLoad, setShouldLoad] = useState(false);
-
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {

@@ -1,13 +1,37 @@
 import React, { useState, useRef, useEffect } from "react";
 import VideoCard from "@/components/VideoCard";
+import { title } from "process";
 
+// ✅ UPDATED VIDEOS WITH TITLES
 const videos = [
-  "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_8531_mlox9a.mov",
-  "https://res.cloudinary.com/dlhudsqax/video/upload/WhatsApp_Video_2026-04-05_at_12.34.10_PM_j5qtou.mp4",
-  "https://res.cloudinary.com/dlhudsqax/video/upload/growid5_qmiqfv.mp4",
-  "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_4443_k1blk1.mp4",
-  "https://res.cloudinary.com/dlhudsqax/video/upload/growid2_cvvwgp.mp4",
-  "https://res.cloudinary.com/dlhudsqax/video/upload/growid3_toup0j.mp4",
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/v1775372871/IMG_8531_mlox9a.mov://res.cloudinary.https://res.cloudinary.com/dlhudsqax/video/upload/v1775372871/IMG_8531_mlox9a.mov/dlhudsqax/video/upload/IMG_8531_mlox9a.mov",
+    title: "Andrea Concert",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/WhatsApp_Video_2026-04-05_at_12.34.10_PM_j5qtou.mp4",
+    title: "VJ ANNAMALAI",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/growid5_qmiqfv.mp4",
+    title: "VANI BHOJAN",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/IMG_4443_k1blk1.mp4",
+    title: "AARAMBAM'26",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/growid2_cvvwgp.mp4",
+    title: "AARAMBAM'26",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/growid3_toup0j.mp4",
+    title: "VIZAG - AARAMBAM'26",
+  },
+  {
+    src: "https://res.cloudinary.com/dlhudsqax/video/upload/v1776538460/Welcoming_Our_Pavazha_Malli_%EF%B8%8F__SPARKZ_26_day_2_Digital_Media_Partner-_growid_official_Cel_hnxkd4.mp4",
+    title: "KAYADU LOHAR",
+  }
 ];
 
 const VideoSection = () => {
@@ -18,12 +42,12 @@ const VideoSection = () => {
   const startX = useRef(0);
   const scrollLeft = useRef(0);
 
-  // AUTO SCROLL
+  // ✅ AUTO SCROLL
   useEffect(() => {
     const slider = sliderRef.current;
 
     const autoScroll = () => {
-      if (!isDown.current) {
+      if (!isDown.current && slider) {
         slider.scrollLeft += 1;
 
         if (slider.scrollLeft >= slider.scrollWidth / 2) {
@@ -36,7 +60,7 @@ const VideoSection = () => {
     return () => clearInterval(interval);
   }, []);
 
-  // DRAG START
+  // ✅ DRAG FUNCTIONS
   const handleMouseDown = (e) => {
     isDown.current = true;
     sliderRef.current.classList.add("cursor-grabbing");
@@ -82,9 +106,9 @@ const VideoSection = () => {
         {[...videos, ...videos].map((video, i) => (
           <VideoCard
             key={i}
-            title="Growid"
-            subtitle="Reel"
-            video={video}
+            title={video.title}     // ✅ dynamic title
+            subtitle="Growid Reel"
+            video={video.src}       // ✅ updated src
             onClick={setActiveVideo}
           />
         ))}
@@ -109,10 +133,8 @@ const VideoSection = () => {
             autoPlay
             className="h-[90vh] w-auto max-h-[90vh] object-contain rounded-xl"
           />
-
         </div>
       )}
-
     </section>
   );
 };

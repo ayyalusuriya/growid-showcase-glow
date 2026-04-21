@@ -67,13 +67,13 @@ const EventManagementSection = () => {
           </h3>
 
           {/* STATS */}
-          <p className="flex flex-wrap items-center gap-x-3 gap-y-2 text-lg font-semibold text-[#fec903] mb-6">
-            <span>11,000+ students</span>
-            <span>•</span>
-            <span>One unforgettable fest</span>
-            <span>•</span>
-            <span>Star-studded experience</span>
-          </p>
+        <p className="flex flex-wrap justify-center md:justify-start gap-3 text-[#fec903] text-base md:text-lg font-bold">
+          <span>11,000+ students</span>
+          <span className="hidden sm:inline">•</span>
+          <span>One unforgettable fest</span>
+          <span className="hidden sm:inline">•</span>
+          <span>Star-studded experience</span>
+        </p>
 
           <p className="text-[#fec903]/80 leading-relaxed">
             SPARKZ’26, the grand college cultural event, brought together over
